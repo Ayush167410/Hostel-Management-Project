@@ -10,13 +10,17 @@ import NavBar from './components/navbar.jsx';
 import StaticExample from './components/exam';
 import { BrowserRouter } from 'react-router-dom';
 import LoginStudent from './components1/LoginStudent';
+import Card from './components/Card';
+// import Carousel from './components/carousel';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
    <NavBar/>
    </BrowserRouter>
-   <Footer />
+   <Card/>
+   {/* <Carousel/> */}
+   {/* <Footer /> */}
    {/* <LoginStudent/> */}
   
    {/* <StaticExample/> */}
