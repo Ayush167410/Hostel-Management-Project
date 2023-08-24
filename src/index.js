@@ -13,11 +13,11 @@ import LoginStudent from './components1/LoginStudent';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <BrowserRouter>
+    <BrowserRouter>
    <NavBar/>
    </BrowserRouter>
-   <Footer /> */}
-   <LoginStudent/>
+   <Footer />
+   {/* <LoginStudent/> */}
   
    {/* <StaticExample/> */}
   </React.StrictMode>
