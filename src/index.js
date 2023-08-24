@@ -1,22 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Navbar from './components/navbar.jsx';
+// import Navbar from './components/navbar.jsx';
 import './bootstrap.css';
-import Intro from './components/homeIntro.jsx'
-import Footer from './components/footer.jsx';
-import CollapsibleExample from './components/exam';
+// import Intro from './components/homeIntro.jsx'
+// import Footer from './components/footer.jsx';
+// import CollapsibleExample from './components/exam';
 import NavBar from './components/navbar.jsx';
-import StaticExample from './components/exam';
+// import StaticExample from './components/exam';
 import { BrowserRouter } from 'react-router-dom';
-import LoginStudent from './components1/LoginStudent';
+// import LoginStudent from './components1/LoginStudent';
+import Card from './components/Card';
+// import Carousel from './components/carousel';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
    <NavBar/>
    </BrowserRouter>
-   <Footer />
+   <Card/>
+   {/* <Carousel/> */}
+   {/* <Footer /> */}
    {/* <LoginStudent/> */}
   
    {/* <StaticExample/> */}
