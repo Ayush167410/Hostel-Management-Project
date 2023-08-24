@@ -1,0 +1,32 @@
+.navitem{
+    margin:5px;
+    text-decoration:none;
+    color:white !important;
+   
+}
+.navitem:hover{
+    text-decoration:none;
+    color:white !important;
+}
+Link{
+color:white;
+text-decoration:none;
+}
+
+.navbar{
+    background-color:#D8C4B6;
+}
+
+#brand{
+    font-size:1.5rem;
+    margin-left:0px;
+    width:20%;
+    text-align:left;
+}
+
+.navimg{
+    height:100px;
+    width:70px;
+}
+
+

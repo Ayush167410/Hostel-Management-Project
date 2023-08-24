@@ -1,0 +1,29 @@
+
+.head {
+    
+    text-align: center;
+    background-image: url('./bitsindri2.png');
+    background-size:100% 100%;
+   
+   padding:120px 10px;
+
+
+   
+  }
+
+p{
+    font-size:1.5rem;
+   
+    
+}
+@media(max-width:900px)
+{
+  p,h1{
+    font-size:1rem;
+
+  }
+  .head{
+    padding:70px 20px;
+  }
+}
+

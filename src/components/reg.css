@@ -1,0 +1,10 @@
+.form{
+    margin:10px;
+    background-color: #FFE4A7;
+    padding:2% 3%;
+    border: 2px black dashed;
+    border-radius:5px;
+}
+.input{
+    margin:30px;
+}
