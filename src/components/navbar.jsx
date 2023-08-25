@@ -64,6 +64,10 @@ import { Link } from 'react-router-dom';
 import LogStudent from './logstudent';
 import LogAdmin from './logadmin';
 import LogSuperAdmin from './logsuperadmin';
+import CardImage from './Card';
+import RegisterStudent from './registerStudent';
+import RegisterAdmin from './registerAdmin';
+import RegisterSuper from './registerSuper';
 
 function NavBar() {
 
@@ -72,7 +76,7 @@ function NavBar() {
 
   return (
     <div>
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar">
+    <Navbar collapseOnSelect expand="" className="bg-body-secondary navbar">
         
       <Container>
       <img className='navimg' src={require("./bitsindrilogo.jpg")}/>
@@ -80,11 +84,14 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto nav">
-            <Nav.Link className='btn btn-outline-dark navitem'><Link className='navitem' to ='/home'>Home</Link></Nav.Link>
-            <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/register'>Register</Link></Nav.Link>
-            <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/logstu'>Login as Student</Link></Nav.Link>
-            <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/logadm'>Login as Admin</Link></Nav.Link>
-            <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/logsupadm'>Login as Super Admin</Link></Nav.Link>
+            {/* <Nav.Link className='btn btn-outline-dark navitem'><Link className='navitem' to ='/home'>Home</Link></Nav.Link> */}
+            {/* <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/register'>Register</Link></Nav.Link> */}
+            <Nav.Link className='btn btn-md btn-outline-dark  navitem' ><Link className='navitem' to ='/registerstudent'>Register as Student</Link></Nav.Link>
+            <Nav.Link className='btn btn-md btn-outline-dark  navitem' ><Link className='navitem' to ='/registeradmin'>Register as Admin</Link></Nav.Link>
+            <Nav.Link className='btn btn-md btn-outline-dark  navitem' ><Link className='navitem' to ='/registersuper'>Register as Super Admin</Link></Nav.Link>
+            <Nav.Link className='btn btn-md btn-outline-dark  navitem' ><Link className='navitem' to ='/logstu'>Login as Student</Link></Nav.Link>
+            <Nav.Link className='btn  btn-outline-dark  navitem' ><Link className='navitem' to ='/logadm'>Login as Admin</Link></Nav.Link>
+            <Nav.Link className='btn  btn-outline-dark  navitem' ><Link className='navitem' to ='/logsupadm'>Login as Super Admin</Link></Nav.Link>
             
            
             
@@ -97,12 +104,16 @@ function NavBar() {
     <div className='content'>
 <Routes>
       <Route path="/home" element={<Intro/>}/>
-      <Route path="/register" element={<Register/>}/>+
+      <Route path="/registerstudent" element={<RegisterStudent/>}/>
+      <Route path="/registeradmin" element={<RegisterAdmin/>}/>
+      <Route path="/registersuper" element={<RegisterSuper/>}/>
       <Route path="/logstu" element={<LogStudent/>}/>
       <Route path="/logadm" element={<LogAdmin/>}/>
       <Route path="/logsupadm" element={<LogSuperAdmin/>}/>
       </Routes>
       </div>
+ 
+      
 
     </div>
 

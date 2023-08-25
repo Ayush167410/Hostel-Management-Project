@@ -16,7 +16,7 @@ const Footer = () => {
                     </li>
                     <li>B-Zone</li>
                     <li>Girls Hostels</li>
-                    <a href="../../public/login.html" target="_blank">Hello</a>
+                    
 
 
                  </ul>
