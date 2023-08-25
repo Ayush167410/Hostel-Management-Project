@@ -9,6 +9,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // console.log(JSON.stringify({ designation: credentials.designation, name: credentials.name, email: credentials.email, password: credentials.password }))
     const response = await fetch("http://localhost:5000/api/createuser", {
       method: 'POST',
       headers : {
@@ -16,11 +17,11 @@ const Register = () => {
       },
       body: JSON.stringify({ designation: credentials.designation, name: credentials.name, email: credentials.email, password: credentials.password })
     });
-    const json = response.json();
+    const json = await response.json();
     console.log(json);
-    if (json.success==false) {
-      alert("Enter valid Credentials ");
-      // alert(json)/;
+    if (!(json.success)) {
+      // alert("Enter valid Credentials ");
+      alert(json.success);
     }
   }
  
