@@ -17,7 +17,7 @@ const RegisterStudent = () => {
     roomno: "",
     semester: "",
     dob: "",
-    hostelno: "",
+    hostelno: ""
   });
 
   const handleSubmit = async (e) => {
@@ -42,7 +42,7 @@ const RegisterStudent = () => {
         roomno: credentials.roomno,
         semester: credentials.semester,
         dob: credentials.dob,
-        hostelno: credentials.hostelno,
+        hostelno: credentials.hostelno
       }),
     });
     const json = await response.json();
