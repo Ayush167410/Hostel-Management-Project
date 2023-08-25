@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json())
 app.use('/api', require('./Routes/createUser'))
+app.use('/api', require('./Routes/studentroute'))
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
