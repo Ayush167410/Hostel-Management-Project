@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const adminSchema = require("../models/AdminReg");
 const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const jwtsecret = "Thisisahostelmanagementproject";
 
 router.post(
   "/adminreg",
@@ -15,11 +18,13 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    const salt = await bcrypt.genSalt(10);
+    let secPassword = await bcrypt.hash(req.body.password, salt);
     try {
       await adminSchema.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: secPassword,
         phonumber: req.body.phonumber,
         dept: req.body.dept,
         fathername: req.body.fathername,
@@ -38,7 +43,7 @@ router.post(
   }
 );
 router.post(
-    "/adminreg",
+    "/adminlogin",
     [
       body("email", "Invalid Email").isEmail(),
       body("password", "Short Password").isLength({ min: 5 }),
@@ -56,7 +61,11 @@ router.post(
             .status(400)
             .json({ errors: "tr Logging with correct credential" });
         }
-        if (!(req.body.password === adminData.password)) {
+        const pwdCompare = await bcrypt.compare(
+          req.body.password,
+          adminData.password
+        );
+        if (!pwdCompare) {
           return res
             .status(400)
             .json({

@@ -38,8 +38,10 @@ const RegisterAdmin = () => {
     const json = await response.json();
     console.log(json);
     if (!json.success) {
-      // alert("Enter valid Credentials ");
-      alert(json.success);
+      alert("Enter valid Credentials ");
+      // alert(json.success);
+    }else{
+      alert('Successfully registered');
     }
   };
 
