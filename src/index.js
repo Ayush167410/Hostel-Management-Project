@@ -18,7 +18,7 @@ root.render(
     <BrowserRouter>
    <NavBar/>
    </BrowserRouter>
-   <CardImage/>
+   {/* <CardImage/> */}
    {/* <Carousel/> */}
    <Footer />
    {/* <LoginStudent/> */}

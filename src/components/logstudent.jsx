@@ -27,7 +27,7 @@ let navigate = useNavigate();
       //save the auth toke to local storage and redirect
       localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('token', json.authToken)
-      navigate("/home");
+      navigate("/studentpage");
 
     }
     else {

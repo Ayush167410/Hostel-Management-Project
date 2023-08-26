@@ -84,10 +84,31 @@ router.post(
         const authToken = jwt.sign(data,jwtsecret);
 
         
-        return res.json({ success: true ,authToken:authToken});
+        return res.json({ success: true ,authToken:authToken,studentData:studentData});
       } catch (error) {
         console.log(error);
         // console.log("error happened");
+        res.json({ success: false });
+      }
+    }
+  );
+  router.post(
+    "/studentpage",
+    
+    async (req, res) => {
+     
+      let email = req.body.email;
+      try {
+        let studentData = await StudentSchema.findOne({ email }).select("-password");
+        if (!studentData) {
+          return res
+            .status(400)
+            .json({ errors: "Error displaying student data" });
+        }
+        
+        
+        return res.json( studentData);
+      } catch (error) {
         res.json({ success: false });
       }
     }
