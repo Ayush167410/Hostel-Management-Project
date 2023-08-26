@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const adminSchema = require("../models/AdminReg");
+const studentSchema = require("../models/studentReg");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -81,6 +82,26 @@ router.post(
         console.log(error);
         // console.log("error happened");
         res.json({ success: false });
+      }
+    }
+  );
+
+  router.post(
+    "/adminpage",
+    async (req, res) => {
+      let email = req.body.email;
+      try {
+        let adminData = await adminSchema.findOne({ email }).select(
+          "-password"
+        );
+        if (!adminData) {
+          res.status(400).json({ errors: "Error displaying student data" });
+        }
+        // console.log(adminData, "log from api");
+        let hostelStudents = await studentSchema.find({hostelno:adminData.hostelno});
+        res.send([adminData,hostelStudents]);
+      } catch (error) {
+        res.send("Server Error", error.message);
       }
     }
   );

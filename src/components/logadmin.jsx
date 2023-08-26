@@ -27,7 +27,7 @@ const LogAdmin = () => {
       //save the auth toke to local storage and redirect
       localStorage.setItem("userEmail", credentials.email);
       localStorage.setItem("token", json.authToken);
-      navigate("/");
+      navigate("/adminpage");
       alert('navigated');
     } else {
       console.log("error");

@@ -23,6 +23,7 @@ import RegisterStudent from "./registerStudent";
 import RegisterAdmin from "./registerAdmin";
 import RegisterSuper from "./registerSuper";
 import StudentPage from "./studentPage";
+import AdminPage from "../AdminPage";
 
 function NavBar() {
   let navigate = useNavigate();
@@ -107,6 +108,7 @@ function NavBar() {
           <Route path="/logadm" element={<LogAdmin />} />
           <Route path="/logsupadm" element={<LogSuperAdmin />} />
           <Route path="/studentpage" element={<StudentPage />} />
+          <Route path="/adminpage" element={<AdminPage />} />
         </Routes>
       </div>
     </div>
