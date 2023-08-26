@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 import "./reg.css";
 const RegisterAdmin = () => {
+  let navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -42,6 +44,7 @@ const RegisterAdmin = () => {
       // alert(json.success);
     }else{
       alert('Successfully registered');
+      navigate("/logadm");
     }
   };
 

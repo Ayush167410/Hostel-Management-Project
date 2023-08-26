@@ -23,7 +23,7 @@ import RegisterStudent from "./registerStudent";
 import RegisterAdmin from "./registerAdmin";
 import RegisterSuper from "./registerSuper";
 import StudentPage from "./studentPage";
-import AdminPage from "../AdminPage";
+import AdminPage from "./AdminPage";
 
 function NavBar() {
   let navigate = useNavigate();
@@ -63,11 +63,11 @@ function NavBar() {
                       Register as Admin
                     </Link>
                   </Nav.Link>
-                  <Nav.Link className="btn btn-md btn-outline-dark  navitem">
+                  {/* <Nav.Link className="btn btn-md btn-outline-dark  navitem">
                     <Link className="navitem" to="/registersuper">
                       Register as Super Admin
                     </Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
                   <Nav.Link className="btn btn-md btn-outline-dark  navitem">
                     <Link className="navitem" to="/logstu">
                       Login as Student
@@ -78,11 +78,11 @@ function NavBar() {
                       Login as Admin
                     </Link>
                   </Nav.Link>
-                  <Nav.Link className="btn  btn-outline-dark  navitem">
+                  {/* <Nav.Link className="btn  btn-outline-dark  navitem">
                     <Link className="navitem" to="/logsupadm">
                       Login as Super Admin
                     </Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
                 </Nav>
               </Navbar.Collapse>
             </>
@@ -103,10 +103,10 @@ function NavBar() {
           <Route path="/" element={<Intro />} />
           <Route path="/registerstudent" element={<RegisterStudent />} />
           <Route path="/registeradmin" element={<RegisterAdmin />} />
-          <Route path="/registersuper" element={<RegisterSuper />} />
+          {/* <Route path="/registersuper" element={<RegisterSuper />} /> */}
           <Route path="/logstu" element={<LogStudent />} />
           <Route path="/logadm" element={<LogAdmin />} />
-          <Route path="/logsupadm" element={<LogSuperAdmin />} />
+          {/* <Route path="/logsupadm" element={<LogSuperAdmin />} /> */}
           <Route path="/studentpage" element={<StudentPage />} />
           <Route path="/adminpage" element={<AdminPage />} />
         </Routes>

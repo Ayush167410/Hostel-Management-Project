@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 import "./reg.css";
+
+
 const RegisterStudent = () => {
+  let navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -49,7 +53,12 @@ const RegisterStudent = () => {
     console.log(json);
     if (!json.success) {
       alert("Enter valid Credentials ");
-      // alert(json.success);
+    
+    }
+    else
+    {
+      alert("Successfully Registered");
+      navigate("/logstu");
     }
   };
 
