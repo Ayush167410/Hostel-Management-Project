@@ -28,7 +28,7 @@ let navigate = useNavigate();
       localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('token', json.authToken)
       navigate("/studentpage");
-
+      // alert('navigated');
     }
     else {
       console.log('error');
