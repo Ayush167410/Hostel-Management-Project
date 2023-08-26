@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const StudentSchema = require("../models/studentReg");
 const { body, validationResult } = require("express-validator");
-
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
+const jwtsecret = 'Thisisahostelmanagementproject';
 router.post(
   "/studentreg",
   [
@@ -15,11 +17,14 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    const salt = await bcrypt.genSalt(10);
+    let secPassword = await bcrypt.hash(req.body.password,salt);
+
     try {
       await StudentSchema.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: secPassword,
         phonumber: req.body.phonumber,
         regnumber: req.body.regnumber,
         rollnum: req.body.rollnum,
@@ -61,7 +66,8 @@ router.post(
             .status(400)
             .json({ errors: "tr Logging with correct credential" });
         }
-        if (!(req.body.password === studentData.password)) {
+        const pwdCompare = await bcrypt.compare(req.body.password,studentData.password)
+        if (!(pwdCompare)) {
           return res
             .status(400)
             .json({
@@ -70,9 +76,15 @@ router.post(
               l: req.body.password,
             });
         }
-        console.log(studentData);
-        // res.render(studentData);
-        return res.json({ success: true });
+        const data = {
+            student:{
+                id:studentData.id
+            }
+        }
+        const authToken = jwt.sign(data,jwtsecret);
+
+        
+        return res.json({ success: true ,authToken:authToken});
       } catch (error) {
         console.log(error);
         // console.log("error happened");

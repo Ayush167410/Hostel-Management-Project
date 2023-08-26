@@ -25,8 +25,8 @@ let navigate = useNavigate();
     console.log(json);
     if (json.success) {
       //save the auth toke to local storage and redirect
-      // localStorage.setItem('userEmail', credentials.email)
-      // localStorage.setItem('token', json.authToken)
+      localStorage.setItem('userEmail', credentials.email)
+      localStorage.setItem('token', json.authToken)
       navigate("/home");
 
     }
