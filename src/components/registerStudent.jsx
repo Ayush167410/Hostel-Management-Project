@@ -190,6 +190,7 @@ const RegisterStudent = () => {
             type="date"
             placeholder="Enter DOB"
             name="dob"
+            
             value={credentials.dob}
             onChange={onChange}
           />

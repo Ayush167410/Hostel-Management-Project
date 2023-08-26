@@ -1,50 +1,4 @@
-// import React, { Component } from "react";
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import Navbar from 'react-bootstrap/Navbar';
-// import "./nav.css";
-// const Navbar = () => {
-// return (
-//     <React.Fragment>
-//       <nav className="navbar navbar-expand-sm">
-//         <span className="nav-brand" id="brand">
-//           BIT Hostels
-//         </span>
-//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-//         <Navbar.Collapse id="responsive-navbar-nav">
-//         <ul className="navbar-nav ml-auto navin" id="navbarToggleExternalContent" data-bs-theme="dark">
-//           <li className="nav-item btn btn-outline-dark but">
-//             <a href="#" className="navitem_a">
-//               Map
-//             </a>
-//           </li>
-//           <li className="btn btn-outline-dark but">
-//             <a href="#" className="navitem_a">
-//               Login as Student
-//             </a>
-//           </li>
-//           <li className="btn btn-outline-dark but">
-//             <a href="#" className="navitem_a">
-//               Login as Admin
-//             </a>
-//           </li>
-//           <li className="btn btn-outline-dark but">
-//             <a href="#" className="navitem_a">
-//               Login as Super Admin
-//             </a>
-//           </li>
-//           <li className="btn btn-outline-dark but">
-//             <a href="#" className="navitem_a">
-//               Register
-//             </a>
-//           </li>
-//         </ul>
-//         </Navbar.Collapse>
-//       </nav>
-//     </React.Fragment>
-// );
-// };
 
-// export default Navbar;
 import React, { Component } from "react";
 
 import Container from "react-bootstrap/Container";
@@ -82,7 +36,7 @@ function NavBar() {
       <Navbar collapseOnSelect expand="" className="bg-body-secondary navbar">
         <Container>
           <img className="navimg" src={require("./bitsindrilogo.jpg")} />
-          <Navbar.Brand href="/" id="brand">
+          <Navbar.Brand id="brand">
             BIT Hostels
           </Navbar.Brand>
           {!localStorage.getItem("token") ? (
@@ -93,7 +47,11 @@ function NavBar() {
                 <Nav className="ml-auto nav">
                   {/* <Nav.Link className='btn btn-outline-dark navitem'><Link className='navitem' to ='/home'>Home</Link></Nav.Link> */}
                   {/* <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/register'>Register</Link></Nav.Link> */}
-
+                  <Nav.Link className="btn btn-md btn-outline-dark  navitem">
+                    <Link className="navitem" to="/">
+                      Home
+                    </Link>
+                  </Nav.Link>
                   <Nav.Link className="btn btn-md btn-outline-dark  navitem">
                     <Link className="navitem" to="/registerstudent">
                       Register as Student
