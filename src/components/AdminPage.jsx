@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
+import './tabl.css';
 
 
 
 
 export default function AdminPage() {
     const [adminData, setadminData] = useState({});
-    const [studentData, setstudentData] = useState({});
+    const [studentData, setstudentData] = useState([]);
     const [studentapplied, setstudentapplied] = useState([]);
+  
 
   const fetchAdmin = async () => {
     const email = localStorage.getItem("userEmail");
@@ -47,12 +49,22 @@ export default function AdminPage() {
   console.log(studentData,'student');
   console.log(studentapplied,'studenth');
 
+  const handleAccept=()=>
+  {
+    console.log('succ');
+
+  }
+  const handleReject=()=>
+  {
+
+  }
+
   
 
   return (
-    <div>
-      <Table striped bordered hover>
-      <thead>
+    <div className="tab">
+      <Table striped bordered hover className="table-success">
+      <thead className="table-dark">
         <tr>
           <th>#</th>
           <th>Credential</th>
@@ -93,13 +105,27 @@ export default function AdminPage() {
         <Table striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
+          <th>Registration Number</th>
           <th>Name</th>
           <th>Roll no</th>
+          <th>Accept</th>
+          <th>Reject</th>
           
         </tr>
       </thead>
       <tbody>
+
+      {studentapplied.map(student=>
+        <tr>
+          <td>{student.regnumber}</td>
+          <td>{student.name}</td>
+          <td>{student.rollnum}</td>
+          <td><button className="btn btn-success btn-sm" onClick={handleAccept} >Accept</button></td>
+          <td><button className="btn btn-danger btn-sm" onClick={handleReject}>Reject</button></td>
+
+
+        </tr>)}
+
      
 
       </tbody>

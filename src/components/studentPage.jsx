@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import './tabl.css';
 
 
 export default function StudentPage() {
@@ -90,9 +91,9 @@ export default function StudentPage() {
      fetchStudent();
   }, []);
   return(<>
-  <div>
-  <Table striped bordered hover>
-      <thead>
+  <div className="tab">
+  <Table striped bordered hover className="table-success">
+      <thead className="table-dark">
         <tr>
           <th>#</th>
           <th>Credential</th>
@@ -167,8 +168,8 @@ export default function StudentPage() {
        
       </tbody>
     </Table>
-    <div>
-      <button onClick={handleButtonClick}>Show Form</button>
+    <div className="text-center m-4 ">
+      <button className="btn btn-lg btn-secondary btn-center" onClick={handleButtonClick}>Show Form</button>
       {showForm && (
         <Form className="form" onSubmit={handleSubmit}>
         <h2>Apply For Hostel</h2>
