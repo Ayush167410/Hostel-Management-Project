@@ -18,10 +18,7 @@ const RegisterStudent = () => {
     fathername: "",
     mothername: "",
     gender: "",
-    roomno: "",
-    semester: "",
     dob: "",
-    hostelno: ""
   });
 
   const handleSubmit = async (e) => {
@@ -43,10 +40,7 @@ const RegisterStudent = () => {
         fathername: credentials.fathername,
         mothername: credentials.mothername,
         gender: credentials.gender,
-        roomno: credentials.roomno,
-        semester: credentials.semester,
         dob: credentials.dob,
-        hostelno: credentials.hostelno
       }),
     });
     const json = await response.json();
@@ -173,26 +167,8 @@ const RegisterStudent = () => {
             onChange={onChange}
           />
         </Form.Group>
-        <Form.Group className="input" controlId="formPassword">
-          <Form.Label>Enter Room Number</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Enter Room Number"
-            name="roomno"
-            value={credentials.roomno}
-            onChange={onChange}
-          />
-        </Form.Group>
-        <Form.Group className="input" controlId="formPassword">
-          <Form.Label>Enter Semester</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Enter Semester"
-            name="semester"
-            value={credentials.semester}
-            onChange={onChange}
-          />
-        </Form.Group>
+        
+        
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter DOB</Form.Label>
           <Form.Control
@@ -204,16 +180,7 @@ const RegisterStudent = () => {
             onChange={onChange}
           />
         </Form.Group>
-        <Form.Group className="input" controlId="formPassword">
-          <Form.Label>Enter Hostel No.</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Enter Hostel Number"
-            name="hostelno"
-            value={credentials.hostelno}
-            onChange={onChange}
-          />
-        </Form.Group>
+        
 
         <hr />
         <Button type="submit" variant="secondary">

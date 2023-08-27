@@ -57,9 +57,13 @@ export default function AdminPage() {
     }).then(async (res) => {
       let response = await res.json();
       if (response.success) {
-        alert("success accepted");
-        navigate("/adminpage");
+        console.log("success accepted");
+        // navigate("/adminpage");
+        setstudentapplied((current) =>
+        current.filter((fruit) => fruit.regnumber !== regno))
+
       } else {
+
         alert("Aceepting error try again");
       }
     });
@@ -74,8 +78,10 @@ export default function AdminPage() {
     }).then(async (res) => {
       let response = await res.json();
       if (response.success) {
-        alert("success rejected");
-        navigate("/adminpage");
+        console.log("success rejected");
+        // navigate("/adminpage");
+        setstudentapplied((current) =>
+        current.filter((fruit) => fruit.regnumber !== regno))
       } else {
         alert("Already rejected");
       }
@@ -120,6 +126,32 @@ export default function AdminPage() {
           </tr>
         </tbody>
       </Table>
+      {studentData.length!==0?(
+      <Table striped hover bordered>
+    <thead>
+      <tr>
+        <th>Registration Number</th>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Room Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {studentData.map(student=>
+        <tr>
+          <th>{student.regnumber}</th>
+          <th>{student.name}</th>
+          <th>{student.rollnum}</th>
+          <th>{student.roomno}</th>
+
+        </tr>
+        )}
+    </tbody>
+      </Table>
+        ):<>
+        
+        </>}
+        {studentapplied.length!==0?(
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -157,6 +189,9 @@ export default function AdminPage() {
           ))}
         </tbody>
       </Table>
+      ):<>
+        
+      </>}
     </div>
   );
 }

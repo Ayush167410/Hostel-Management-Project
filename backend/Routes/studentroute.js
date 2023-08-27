@@ -33,10 +33,7 @@ router.post(
         fathername: req.body.fathername,
         mothername: req.body.mothername,
         gender: req.body.gender,
-        roomno: req.body.roomno,
-        semester: req.body.semester,
         dob: req.body.dob,
-        hostelno: req.body.hostelno,
       });
       res.json({ success: true });
       console.log("created");

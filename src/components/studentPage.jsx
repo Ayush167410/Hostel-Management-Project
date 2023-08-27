@@ -119,11 +119,7 @@ export default function StudentPage() {
           <td>Department</td>
           <td>{studentData.dept}</td>
         </tr>
-        <tr>
-          <td>4</td>
-          <td>Hostel No.</td>
-          <td>{studentData.hostelno}</td>
-        </tr>
+        
         <tr>
           <td>5</td>
           <td>Registration Number</td>
@@ -134,11 +130,7 @@ export default function StudentPage() {
           <td>Roll Number</td>
           <td>{studentData.rollnum}</td>
         </tr>
-        <tr>
-          <td>7</td>
-          <td>Semester</td>
-          <td>{studentData.semester}</td>
-        </tr>
+        
         <tr>
           <td>8</td>
           <td>DOB</td>
@@ -193,16 +185,7 @@ export default function StudentPage() {
             onChange={onChange}
           />
         </Form.Group>
-        <Form.Group className="input" controlId="formPassword">
-          <Form.Label>Create Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Create Password"
-            name="password"
-            value={credentials.password}
-            onChange={onChange}
-          />
-        </Form.Group>
+        
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Phone Number</Form.Label>
           <Form.Control

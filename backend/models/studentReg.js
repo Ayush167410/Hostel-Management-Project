@@ -43,22 +43,10 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  roomno: {
-    type: Number,
-    required: true,
-  },
-  semester: {
-    type: Number,
-    required: true,
-  },
   dob: {
     type: Date,
     required: true,
     trim: true
-  },
-  hostelno: {
-    type: Number,
-    required: true,
   },
   date: {
     type: Date,
