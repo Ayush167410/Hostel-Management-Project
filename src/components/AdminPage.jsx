@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Table from 'react-bootstrap/Table';
-import './tabl.css';
-
-
-
+import Table from "react-bootstrap/Table";
+import "./tabl.css";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AdminPage() {
-    const [adminData, setadminData] = useState({});
-    const [studentData, setstudentData] = useState([]);
-    const [studentapplied, setstudentapplied] = useState([]);
-  
+  let navigate = useNavigate();
+  const [adminData, setadminData] = useState({});
+  const [studentData, setstudentData] = useState([]);
+  const [studentapplied, setstudentapplied] = useState([]);
 
   const fetchAdmin = async () => {
     const email = localStorage.getItem("userEmail");
@@ -39,102 +37,126 @@ export default function AdminPage() {
     }).then(async (res) => {
       let response = await res.json();
       await setstudentapplied(response);
-      console.log('successf');
+      console.log("successf");
     });
   };
   useEffect(() => {
     fetchpplied();
   }, []);
-  console.log(adminData,'Admin');
-  console.log(studentData,'student');
-  console.log(studentapplied,'studenth');
+  console.log(adminData, "Admin");
+  console.log(studentData, "student");
+  console.log(studentapplied, "studenta");
 
-  const handleAccept=()=>
-  {
-    console.log('succ');
-
-  }
-  const handleReject=()=>
-  {
-
-  }
-
-  
+  const handleAccept = async (regno) => {
+    await fetch("http://localhost:5000/api/studentaccept", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ regnumber: regno }),
+    }).then(async (res) => {
+      let response = await res.json();
+      if (response.success) {
+        alert("success accepted");
+        navigate("/adminpage");
+      } else {
+        alert("Aceepting error try again");
+      }
+    });
+  };
+  const handleReject = async (regno) => {
+    await fetch("http://localhost:5000/api/studentreject", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ regnumber: regno }),
+    }).then(async (res) => {
+      let response = await res.json();
+      if (response.success) {
+        alert("success rejected");
+        navigate("/adminpage");
+      } else {
+        alert("Already rejected");
+      }
+    });
+  };
 
   return (
     <div className="tab">
       <Table striped bordered hover className="table-success">
-      <thead className="table-dark">
-        <tr>
-          <th>#</th>
-          <th>Credential</th>
-          <th>Detail</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Name</td>
-          <td>{adminData.name}</td>
-          
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Email</td>
-          <td>{adminData.email}</td>
-          
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Department</td>
-          <td>{adminData.dept}</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Hostel No.</td>
-          <td>{adminData.hostelno}</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Phone Number</td>
-          <td>{adminData.phonumber}</td>
-        </tr>
+        <thead className="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Credential</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Name</td>
+            <td>{adminData.name}</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Email</td>
+            <td>{adminData.email}</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Department</td>
+            <td>{adminData.dept}</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Hostel No.</td>
+            <td>{adminData.hostelno}</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Phone Number</td>
+            <td>{adminData.phonumber}</td>
+          </tr>
         </tbody>
-        </Table>
-        <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Registration Number</th>
-          <th>Name</th>
-          <th>Roll no</th>
-          <th>Accept</th>
-          <th>Reject</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-
-      {studentapplied.map(student=>
-        <tr>
-          <td>{student.regnumber}</td>
-          <td>{student.name}</td>
-          <td>{student.rollnum}</td>
-          <td><button className="btn btn-success btn-sm" onClick={handleAccept} >Accept</button></td>
-          <td><button className="btn btn-danger btn-sm" onClick={handleReject}>Reject</button></td>
-
-
-        </tr>)}
-
-     
-
-      </tbody>
       </Table>
-
-
-
-
-
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Registration Number</th>
+            <th>Name</th>
+            <th>Roll no</th>
+            <th>Accept</th>
+            <th>Reject</th>
+          </tr>
+        </thead>
+        <tbody>
+          {studentapplied.map((student) => (
+            <tr>
+              <td>{student.regnumber}</td>
+              <td>{student.name}</td>
+              <td>{student.rollnum}</td>
+              <td>
+                <button
+                  className="btn btn-success btn-sm"
+                  onClick={() => handleAccept(student.regnumber)}
+                >
+                  Accept
+                </button>
+              </td>
+              <td>
+                <button
+                  data-value="apply clicked"
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleReject(student.regnumber)}
+                >
+                  Reject
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
-  )
+  );
 }
