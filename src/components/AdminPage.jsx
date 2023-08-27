@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import "./tabl.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export default function AdminPage() {
   let navigate = useNavigate();
@@ -92,10 +93,24 @@ export default function AdminPage() {
       }
     });
   };
+  const handleData=()=>
+  {
+   let student=[];
+    setstudentData(student);
+  }
+  const countData=()=>
+  {
+    let clas="btn btn-lg btn-danger btn-center";
+    if(studentData.length==0)
+    return clas+" disabled";
+    else
+    return clas;
+  }
+  
 
   return (
     <div className="tab">
-      <Table striped bordered hover className="table-success">
+      <Table striped bordered className="table-success">
         <thead className="table-dark">
           <tr>
             <th>#</th>
@@ -131,9 +146,12 @@ export default function AdminPage() {
           </tr>
         </tbody>
       </Table>
+      <div className="text-center m-4">
+      <Button className={countData()} onClick={handleData}>Delete All</Button>
+      </div>
       {studentData.length!==0?(
-      <Table striped hover bordered>
-    <thead>
+      <Table striped bordered className="table-warning">
+    <thead className="table-dark">
       <tr>
         <th>Registration Number</th>
         <th>Name</th>
@@ -157,8 +175,8 @@ export default function AdminPage() {
         
         </>}
         {studentapplied.length!==0?(
-      <Table striped bordered hover>
-        <thead>
+      <Table striped bordered className="table-info">
+        <thead className="table-dark">
           <tr>
             <th>Registration Number</th>
             <th>Name</th>

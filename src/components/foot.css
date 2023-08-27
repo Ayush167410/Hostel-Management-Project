@@ -1,6 +1,7 @@
 .footer{
     /* background-color:#D5FFE4; */
     background-color: #A0BFE0;
+    background: linear-gradient(45deg,#A0BFE0 50%,white 100%);
     border:2px solid black;
     
  

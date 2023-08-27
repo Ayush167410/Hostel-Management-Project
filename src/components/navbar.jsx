@@ -43,24 +43,24 @@ function NavBar() {
           </Navbar.Brand>
           {!localStorage.getItem("token") ? (
             <>
-              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" className="tog"/>
 
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto nav">
                   {/* <Nav.Link className='btn btn-outline-dark navitem'><Link className='navitem' to ='/home'>Home</Link></Nav.Link> */}
                   {/* <Nav.Link className='btn btn-outline-dark navitem' ><Link className='navitem' to ='/register'>Register</Link></Nav.Link> */}
                   <Nav.Link className="btn btn-md btn-outline-dark  navitem">
-                    <Link className="navitem" to="/">
+                    <Link className="navlink" to="/">
                       Home
                     </Link>
                   </Nav.Link>
                   <Nav.Link className="btn btn-md btn-outline-dark  navitem">
-                    <Link className="navitem" to="/registerstudent">
+                    <Link className="navlink" to="/registerstudent">
                       Register as Student
                     </Link>
                   </Nav.Link>
-                  <Nav.Link className="btn btn-md btn-outline-dark  navitem">
-                    <Link className="navitem" to="/registeradmin">
+                  <Nav.Link className="btn btn-md btn-outline-dark navitem">
+                    <Link className="navlink" to="/registeradmin">
                       Register as Admin
                     </Link>
                   </Nav.Link>
@@ -70,12 +70,12 @@ function NavBar() {
                     </Link>
                   </Nav.Link> */}
                   <Nav.Link className="btn btn-md btn-outline-dark  navitem">
-                    <Link className="navitem" to="/logstu">
+                    <Link className="navlink" to="/logstu">
                       Login as Student
                     </Link>
                   </Nav.Link>
-                  <Nav.Link className="btn  btn-outline-dark  navitem">
-                    <Link className="navitem" to="/logadm">
+                  <Nav.Link className="btn btn-outline-dark navitem">
+                    <Link className="navlink" to="/logadm">
                       Login as Admin
                     </Link>
                   </Nav.Link>

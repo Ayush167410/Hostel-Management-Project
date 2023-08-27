@@ -62,6 +62,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formName">
           <Form.Label>Enter Name</Form.Label>
           <Form.Control
+          className="control"
             type="text"
             placeholder="Name"
             name="name"
@@ -72,6 +73,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" contorlId="formEmail">
           <Form.Label>Enter Email</Form.Label>
           <Form.Control
+          className="control"
             type="email"
             placeholder="Email"
             name="email"
@@ -82,6 +84,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Create Password</Form.Label>
           <Form.Control
+          className="control"
             type="password"
             placeholder="Create Password"
             name="password"
@@ -92,6 +95,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Phone Number</Form.Label>
           <Form.Control
+          className="control"
             type="number"
             placeholder="Enter Phone Number"
             name="phonumber"
@@ -103,6 +107,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Department</Form.Label>
           <Form.Control
+          className="control"
             type="text"
             placeholder="Enter Department"
             name="dept"
@@ -113,6 +118,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Father's Name</Form.Label>
           <Form.Control
+          className="control"
             type="text"
             placeholder="Enter Father's Name"
             name="fathername"
@@ -124,6 +130,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Gender</Form.Label>
           <Form.Control
+          className="control"
             type="text"
             placeholder="Enter Gender"
             name="gender"
@@ -135,6 +142,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter DOB</Form.Label>
           <Form.Control
+          className="control"
             type="date"
             placeholder="Enter DOB"
             name="dob"
@@ -145,6 +153,7 @@ const RegisterAdmin = () => {
         <Form.Group className="input" controlId="formPassword">
           <Form.Label>Enter Hostel No.</Form.Label>
           <Form.Control
+          className="control"
             type="number"
             placeholder="Enter Hostel Number"
             name="hostelno"

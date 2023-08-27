@@ -11,10 +11,10 @@ const Intro = () => {
       
         <h1> Birsa Institute of Technology Sindri Hostels</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectettr adipiscing elit, sed do<br/>
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad<br/>
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut<br/>
-          aliquip ex ea commodo consequat.
+        The primary aim of the Institute is to cater to the requirements of the country for Technological
+         Manpower for development and research programs comparable to the best of the world. The college today
+        offers B.Tech courses in 10 disciplines of engineering, namely Mechanical, Electrical, Metallurgy, Production,
+        Chemical, Electronics & Communications, Civil, Mining, Computer Science, and Information technology.
         </p>
     </div>
   );

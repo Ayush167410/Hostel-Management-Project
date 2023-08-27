@@ -160,11 +160,14 @@ export default function StudentPage() {
        
       </tbody>
     </Table>
-    <div className="text-center m-4 ">
+    <div>
+      <div className='text-center m-4'>
       <button className="btn btn-lg btn-secondary btn-center" onClick={handleButtonClick}>Show Form</button>
+      </div>
       {showForm && (
         <Form className="form" onSubmit={handleSubmit}>
         <h2>Apply For Hostel</h2>
+  
         <Form.Group className="input" controlId="formName">
           <Form.Label>Enter Name</Form.Label>
           <Form.Control
