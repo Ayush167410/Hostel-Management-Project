@@ -5,6 +5,7 @@ const studentSchema = require("../models/studentReg");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Studentapply = require("../models/studentapply");
 const jwtsecret = "Thisisahostelmanagementproject";
 
 router.post(
@@ -75,9 +76,17 @@ router.post(
               l: req.body.password,
             });
         }
+        const data = {
+          admin: {
+            id: adminData.id,
+          },
+        };
+        const authToken = jwt.sign(data, jwtsecret);
         console.log(adminData);
         // res.render(adminData);
-        return res.json({ success: true });
+        return res.json({ success: true ,
+          authToken: authToken,
+          hostelno: adminData.hostelno,});
       } catch (error) {
         console.log(error);
         // console.log("error happened");
@@ -95,11 +104,25 @@ router.post(
           "-password"
         );
         if (!adminData) {
-          res.status(400).json({ errors: "Error displaying student data" });
+          res.status(400).json({ errors: "Error displaying admin data" });
         }
         // console.log(adminData, "log from api");
         let hostelStudents = await studentSchema.find({hostelno:adminData.hostelno});
         res.send([adminData,hostelStudents]);
+      } catch (error) {
+        res.send("Server Error", error.message);
+      }
+    }
+  );
+  router.post(
+    "/studentapplied",
+    async (req, res) => {
+      let hno = req.body.hostelno;
+      try {
+        
+        // console.log(adminData, "log from api");
+        let hostelStudents = await Studentapply.find({hostelno:hno});
+        res.send(hostelStudents);
       } catch (error) {
         res.send("Server Error", error.message);
       }

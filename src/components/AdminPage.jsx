@@ -7,6 +7,7 @@ import Table from 'react-bootstrap/Table';
 export default function AdminPage() {
     const [adminData, setadminData] = useState({});
     const [studentData, setstudentData] = useState({});
+    const [studentapplied, setstudentapplied] = useState([]);
 
   const fetchAdmin = async () => {
     const email = localStorage.getItem("userEmail");
@@ -25,9 +26,26 @@ export default function AdminPage() {
   useEffect(() => {
     fetchAdmin();
   }, []);
+  const fetchpplied = async () => {
+    const hno = localStorage.getItem("hostelno");
+    await fetch("http://localhost:5000/api/studentapplied", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ hostelno: hno }),
+    }).then(async (res) => {
+      let response = await res.json();
+      await setstudentapplied(response);
+      console.log('successf');
+    });
+  };
+  useEffect(() => {
+    fetchpplied();
+  }, []);
   console.log(adminData,'Admin');
   console.log(studentData,'student');
-
+  console.log(studentapplied,'studenth');
 
   
 
