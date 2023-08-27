@@ -32,6 +32,7 @@ function NavBar() {
 
     navigate("/");
   };
+  
   return (
     <div>
       <Navbar collapseOnSelect expand="" className="bg-body-secondary navbar">
@@ -94,6 +95,7 @@ function NavBar() {
               >
                 Logout
               </button>
+              
             </div>
           )}
         </Container>

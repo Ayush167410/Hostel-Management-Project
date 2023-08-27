@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const StudentSchema = require("../models/studentReg");
+const Studentapply = require("../models/studentapply");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -112,6 +113,39 @@ router.post(
       res.json(studentData);
     } catch (error) {
       res.send("Server Error", error.message);
+    }
+  }
+);
+router.post(
+  "/studentapply",
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      await Studentapply.create({
+        name: req.body.name,
+        email: req.body.email,
+        phonumber: req.body.phonumber,
+        regnumber: req.body.regnumber,
+        rollnum: req.body.rollnum,
+        dept: req.body.dept,
+        fathername: req.body.fathername,
+        mothername: req.body.mothername,
+        gender: req.body.gender,
+        roomno: req.body.roomno,
+        semester: req.body.semester,
+        dob: req.body.dob,
+        hostelno: req.body.hostelno,
+      });
+      res.json({ success: true });
+      console.log("Successfully applied");
+    } catch (error) {
+      console.log(error);
+      // alert(error)
+      // console.log("error happened");
+      res.json({ success: false });
     }
   }
 );
