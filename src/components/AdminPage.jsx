@@ -59,6 +59,11 @@ export default function AdminPage() {
       if (response.success) {
         console.log("success accepted");
         // navigate("/adminpage");
+        let students=studentData;
+        let student=studentapplied.filter(s=>s.regnumber==regno);
+        students.push(student[0]);
+        setstudentData(students);
+
         setstudentapplied((current) =>
         current.filter((fruit) => fruit.regnumber !== regno))
 
